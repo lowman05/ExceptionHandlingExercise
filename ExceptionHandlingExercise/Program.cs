@@ -17,14 +17,41 @@ namespace ExceptionHandlingExercise
             // and Exceptions will be thrown 
             // Below we will set this up 
             // ------------------------------------------------------------------------------
-
-
-
-            //TODO START HERE:
+            char[] arr = new char[] { 'D', 'R', 'F', '1', '9', '8', '4', '0', '6' };
+            List<int> numbers = new List<int>();
+            string str;
+            
+                
+             //TODO START HERE:
             
             // Make a foreach loop to iterate through your character array
+            foreach (char character in arr)
+                try
+                {
+                    str = arr[character].ToString();
+                    int num = int.Parse(str);
+                    numbers.Add(num);
+                }
+                catch (IndexOutOfRangeException e) 
+                {
+                    Console.WriteLine($"Unable to Parse '{character}'");
+                    Console.WriteLine(e.Message);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine($"Unable to Parse '{character}'");
+                    
+                }
+
+
+            foreach (var num in numbers)
+                {
+                    Console.WriteLine(num);
+                }
+                
+
             
-                // Now create a try catch
+            // Now create a try catch
                 
                 
                     // Inside your try block
@@ -39,10 +66,7 @@ namespace ExceptionHandlingExercise
                 
             
 
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //}
+            
         }
     }
 }
